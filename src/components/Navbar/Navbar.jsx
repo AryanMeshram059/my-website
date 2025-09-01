@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 function Navbar() {
   const [scrolled, setscrolled] = useState(false);
   const [activesection, setactivesection] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handlescroll = () => {
@@ -53,6 +54,7 @@ function Navbar() {
 
   const handleNavClick = (sectionId) => {
     setactivesection(sectionId);
+    setMenuOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -63,16 +65,15 @@ function Navbar() {
 
   return (
     <>
-      <div className={`w-[99%] h-[10%] flex items-center fixed rounded-lg top-[10px] left-[0.5%] z-30 ${scrolled ? 'glass' : ''}`}>
-        <div className='h-[40px] w-[8%] text-white relative left-[20px] flex items-center justify-center'>
+      <div className={`w-full max-w-[99%] h-[10%] flex items-center fixed rounded-lg top-[10px] left-1/2 -translate-x-1/2 z-30 px-2 ${scrolled ? 'glass' : ''}`}>
+        {/* Logo/Home */}
+        <div className='h-[40px] min-w-[80px] text-white flex items-center justify-center'>
           <motion.button
             onClick={() => handleNavClick('home')}
-            className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'home' ? 'text-white' : 'text-gray-400 hover:text-white'
-              }`}
+            className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'home' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Active Background */}
             {activesection === 'home' && (
               <motion.div
                 className="absolute inset-0 glass rounded-lg border border-white/20"
@@ -83,17 +84,32 @@ function Navbar() {
             <span className="relative z-10">Home</span>
           </motion.button>
         </div>
-        <div className='w-[50%] flex items-center justify-center relative left-[45%]'>
+        {/* Hamburger for mobile */}
+        <div className="ml-auto flex md:hidden">
+          <button
+            className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-yellow-400 focus:outline-none"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+        {/* Desktop Menu */}
+        <div className='w-[50%] flex items-center justify-center relative left-[45%] hidden md:flex'>
           <ul className='flex w-full h-full justify-evenly gap-2'>
             <li className='h-[40px] w-[20%] text-white flex items-center justify-center'>
               <motion.button
                 onClick={() => handleNavClick('aboutme')}
-                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'aboutme' ? 'text-white' : 'text-gray-400 hover:text-white'
-                  }`}
+                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'aboutme' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {/* Active Background */}
                 {activesection === 'aboutme' && (
                   <motion.div
                     className="absolute inset-0 glass rounded-lg border border-white/20"
@@ -107,12 +123,10 @@ function Navbar() {
             <li className='h-[40px] w-[20%] text-white flex items-center justify-center'>
               <motion.button
                 onClick={() => handleNavClick('projects')}
-                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'projects' ? 'text-white' : 'text-gray-400 hover:text-white'
-                  }`}
+                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'projects' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {/* Active Background */}
                 {activesection === 'projects' && (
                   <motion.div
                     className="absolute inset-0 glass rounded-lg border border-white/20"
@@ -126,12 +140,10 @@ function Navbar() {
             <li className='h-[40px] w-[20%] text-white flex items-center justify-center'>
               <motion.button
                 onClick={() => handleNavClick('contact')}
-                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'contact' ? 'text-white' : 'text-gray-400 hover:text-white'
-                  }`}
+                className={`relative space-grotesk h-full w-full flex items-center justify-center rounded-lg transition-all duration-300 ${activesection === 'contact' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {/* Active Background */}
                 {activesection === 'contact' && (
                   <motion.div
                     className="absolute inset-0 glass rounded-lg border border-white/20"
@@ -144,8 +156,32 @@ function Navbar() {
             </li>
           </ul>
         </div>
-
       </div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed top-[100px] left-[1%] w-[98%] glass z-40 flex flex-col items-center py-6 md:hidden">
+          <ul className="w-full flex flex-col items-center gap-6">
+            <li className="w-full text-center">
+              <button
+                onClick={() => handleNavClick('aboutme')}
+                className={`w-full py-2 text-lg font-semibold ${activesection === 'aboutme' ? 'text-yellow-400' : 'text-white hover:text-yellow-400'}`}
+              >About Me</button>
+            </li>
+            <li className="w-full text-center">
+              <button
+                onClick={() => handleNavClick('projects')}
+                className={`w-full py-2 text-lg font-semibold ${activesection === 'projects' ? 'text-yellow-400' : 'text-white hover:text-yellow-400'}`}
+              >Projects</button>
+            </li>
+            <li className="w-full text-center">
+              <button
+                onClick={() => handleNavClick('contact')}
+                className={`w-full py-2 text-lg font-semibold ${activesection === 'contact' ? 'text-yellow-400' : 'text-white hover:text-yellow-400'}`}
+              >Contact</button>
+            </li>
+          </ul>
+        </div>
+      )}
     </>
   )
 }

@@ -9,16 +9,16 @@ function Home() {
   return (
     <div className='w-full h-[80vh] relative z-0'>
       <video src={heroVideo} loop muted autoPlay className='object-cover z-0 w-full h-full'></video>
-      <div className='absolute z-10 w-[50%] h-full top-[10%] left-[5%] flex flex-col justify-center'>
+      <div className='absolute z-10 w-full md:w-[50%] h-full top-[10%] left-0 md:left-[5%] flex flex-col justify-center px-4 md:px-0'>
         <div className='space-y-4'>
           <motion.div
-            className='bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] bg-clip-text text-transparent text-[80px] outfit font-bold leading-tight'
+            className='bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] bg-clip-text text-transparent text-[40px] sm:text-[60px] md:text-[80px] outfit font-bold leading-tight'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >Hi,</motion.div>
           <motion.div
-            className='bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] bg-clip-text text-transparent text-[80px] outfit font-bold leading-tight'
+            className='bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] bg-clip-text text-transparent text-[40px] sm:text-[60px] md:text-[80px] outfit font-bold leading-tight'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -27,7 +27,7 @@ function Home() {
             <span className='animate-pulse'>|</span>
           </motion.div>
           <motion.div
-            className='text-[#B2A8A8] outfit w-[60%] pt-8 text-lg leading-relaxed'
+            className='text-[#B2A8A8] outfit w-full md:w-[60%] pt-8 text-base sm:text-lg leading-relaxed'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -36,7 +36,7 @@ function Home() {
           </motion.div>
         </div>
       </div>
-      <div className="absolute bottom-[0] left-0 w-full h-32 bg-gradient-to-b from-transparent to-neutral-950 z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-neutral-950 z-20" />
     </div>
   )
 }
