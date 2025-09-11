@@ -2,6 +2,7 @@ import React, { use } from 'react'
 import heroVideo from '../../assets/heroVideo.mp4'
 import {motion} from 'framer-motion'
 import { useTypewriter } from '../../hooks/useTypewriter'
+import SectionDivider from '../shared/SectionDivider'
 
 function Home() {
   const typedtext2=useTypewriter("I'm Aryan !",90)
@@ -37,6 +38,7 @@ function Home() {
         </div>
       </div>
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-neutral-950 z-20" />
+      <SectionDivider/>
     </div>
   )
 }

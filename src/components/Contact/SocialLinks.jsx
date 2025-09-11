@@ -24,10 +24,10 @@ function SocialLinks() {
       type: 'svg',
       color: 'hover:text-white',
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="currentColor" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
           className="w-8 h-8"
         >
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 
@@ -45,10 +45,10 @@ function SocialLinks() {
       type: 'svg',
       color: 'hover:text-pink-400',
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="currentColor" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
           className="w-8 h-8"
         >
           <path d="M7 2C4.24 2 2 4.24 2 7v10c0 
@@ -74,10 +74,10 @@ function SocialLinks() {
       type: 'svg',
       color: 'hover:text-red-400',
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="currentColor" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
           className="w-8 h-8"
         >
           <path d="M20 4H4c-1.1 0-2 .9-2 

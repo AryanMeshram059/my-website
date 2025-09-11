@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
 import Card from '../shared/Card'
 import { downloadFile } from '../shared/downloadResume'
+import dp from '../../assets/profilepicture.jpg'
 
 function ProfileCard() {
   const [downloading,setDownloading]=useState(false);
@@ -36,7 +37,7 @@ function ProfileCard() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="w-full h-full rounded-full bg-neutral-900 flex items-center justify-center">
-            <span className="text-4xl font-bold text-[#A87F17]">A</span>
+            <img src={dp} className='rounded-full'/>
           </div>
         </motion.div>
 

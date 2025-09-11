@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
+import SectionDivider from '../shared/SectionDivider'
 
 function Projects() {
 
@@ -74,7 +75,7 @@ function Projects() {
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div
+        {/* <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,8 +92,9 @@ function Projects() {
           >
             Let's Connect
           </motion.a>
-        </motion.div>
+        </motion.div> */}
 
+        <SectionDivider/>
       </div>
     </div>
   )
