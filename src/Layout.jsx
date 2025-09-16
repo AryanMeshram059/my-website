@@ -4,6 +4,7 @@ import Home from './components/Home/Home'
 import AboutMe from './components/AboutMe/AboutMe'
 import Contact from './components/Contact/Contact'
 import Projects from './components/Projects/Projects'
+import { Analytics } from '@vercel/analytics/react'
 
 function Layout() {
   return (
@@ -21,6 +22,7 @@ function Layout() {
       <section id='contact'>
         <Contact />
       </section>
+      <Analytics />
     </>
   )
 }
