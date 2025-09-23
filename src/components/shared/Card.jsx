@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 function Card({ 
   children, 
@@ -8,8 +9,11 @@ function Card({
   glassAlways = false,
   delay = 0,
   duration = 0.6,
+  threshold = 0.3,
   ...props 
 }) {
+  const { elementRef, isVisible } = useScrollAnimation(threshold)
+  
   const baseClasses = 'bg-neutral-900/80 border border-neutral-800 rounded-2xl p-6'
   const glassClasses = glassAlways 
     ? 'glass' 
@@ -19,9 +23,10 @@ function Card({
 
   return (
     <motion.div
+      ref={elementRef}
       className={`${baseClasses} ${glassClasses} ${className}`}
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration, delay }}
       whileHover={{ y: -5 }}
       {...props}

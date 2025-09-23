@@ -1,8 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import "devicon/devicon.min.css"
 
 function SocialLinks() {
+  const { elementRef, isVisible } = useScrollAnimation(0.3)
   const socialLinks = [
     {
       name: 'GitHub',
@@ -109,11 +111,11 @@ function SocialLinks() {
   }
 
   return (
-    <div className="text-center space-y-8">
+    <div ref={elementRef} className="text-center space-y-8">
       <motion.h3
         className="text-2xl font-semibold text-white outfit"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         Let's Connect
@@ -123,7 +125,7 @@ function SocialLinks() {
         className="flex flex-wrap justify-center gap-6"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={isVisible ? "visible" : "hidden"}
       >
         {socialLinks.map((link) => (
           <motion.a

@@ -4,17 +4,19 @@ import ProfileCard from './ProfileCard'
 import SkillsGrid from './SkillsGrid'
 import ExperienceTimeline from './ExperienceTimeline'
 import SectionDivider from '../shared/SectionDivider'
+import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 function AboutMe() {
+  const { elementRef, isVisible } = useScrollAnimation(0.3)
   return (
-    <div className='min-h-[140vh] w-full bg-neutral-950 text-white py-20 px-4'>
+    <div ref={elementRef} className='min-h-[140vh] w-full bg-neutral-950 text-white py-20 px-4'>
       <div className='max-w-7xl mx-auto space-y-20 pt-16'>
 
         {/* Profile Section */}
         <motion.div
           className='flex flex-col lg:flex-row items-center lg:items-start gap-12'
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
           {/* Profile Card */}
@@ -39,7 +41,7 @@ function AboutMe() {
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 1.6 }}
         >
           <p className="text-[#B2A8A8] outfit mb-6">

@@ -2,11 +2,13 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
 import SectionDivider from '../shared/SectionDivider'
+import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 function Projects() {
+  const { elementRef, isVisible } = useScrollAnimation(0.3)
 
   return (
-    <div className='min-h-[140vh] w-full bg-zinc-950 text-white py-20 px-4'>
+    <div ref={elementRef} className='min-h-[140vh] w-full bg-zinc-950 text-white py-20 px-4'>
       <div className='max-w-7xl mx-auto pt-16'>
         
         {/* Section Header */}
@@ -17,7 +19,7 @@ function Projects() {
           <motion.p
             className="text-[#B2A8A8] outfit text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             A collection of projects that showcase my skills in web development, 
@@ -29,13 +31,13 @@ function Projects() {
         <motion.div
           className="text-center py-20"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div
             className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#A87F17] to-[#D4AF37] p-1"
             initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
+            animate={isVisible ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
             transition={{ duration: 1, delay: 0.8, type: "spring", bounce: 0.3 }}
           >
             <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center">
@@ -46,7 +48,7 @@ function Projects() {
           <motion.h3
             className="text-4xl font-bold text-white mb-4 outfit"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             Stay Tuned!
@@ -55,7 +57,7 @@ function Projects() {
           <motion.p
             className="text-[#B2A8A8] outfit text-lg max-w-2xl mx-auto mb-8"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             I'm currently working on some exciting projects that will showcase my skills in web development. 
@@ -65,7 +67,7 @@ function Projects() {
           <motion.div
             className="flex flex-wrap justify-center gap-4 text-sm text-[#A87F17] outfit font-medium"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1.4 }}
           >
             <span className="px-4 py-2 border border-[#A87F17]/30 rounded-full">React Applications</span>
@@ -93,7 +95,6 @@ function Projects() {
             Let's Connect
           </motion.a>
         </motion.div> */}
-
         <SectionDivider/>
       </div>
     </div>

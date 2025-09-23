@@ -6,8 +6,10 @@ import SocialLinks from './SocialLinks'
 import SectionDivider from '../shared/SectionDivider'
 import { downloadFile } from '../shared/downloadResume'
 import { useState } from 'react'
+import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 function Contact() {
+  const { elementRef, isVisible } = useScrollAnimation(0.3)
   const [downloading,setDownloading]=useState(false);
   const [error, setError]=useState(null);
   const resumeURL="/Resume.pdf";
@@ -26,7 +28,7 @@ function Contact() {
     }
   };
   return (
-    <div className='min-h-[140vh] w-full bg-black text-white py-20 px-4'>
+    <div ref={elementRef} className='min-h-[140vh] w-full bg-black text-white py-20 px-4'>
       <div className='max-w-6xl mx-auto pt-16'>
         
         {/* Section Header */}
@@ -37,7 +39,7 @@ function Contact() {
           <motion.p
             className="text-[#B2A8A8] outfit text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Have a project in mind or want to collaborate? I'd love to hear from you. 
@@ -49,7 +51,7 @@ function Contact() {
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <h4 className="text-2xl font-semibold text-white outfit mb-4">
@@ -101,7 +103,7 @@ function Contact() {
           <motion.div
             className="order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <SocialLinks />
@@ -112,7 +114,7 @@ function Contact() {
         <motion.div
           className="text-center mt-16 pt-8 border-t border-neutral-800"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
           <p className="text-[#B2A8A8] outfit text-sm">
@@ -122,7 +124,6 @@ function Contact() {
             © 2024 Aryan. All rights reserved.
           </p>
         </motion.div>
-
       </div>
     </div>
   )
