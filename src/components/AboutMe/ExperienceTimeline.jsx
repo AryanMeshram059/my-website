@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
 
@@ -59,7 +59,7 @@ function ExperienceTimeline() {
     return (
       <motion.div
         ref={itemRef}
-        className="relative flex items-start space-x-6"
+        className="relative flex items-start space-x-3 sm:space-x-6"
         initial={{ opacity: 0, x: -50 }}
         animate={isItemInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -87,13 +87,13 @@ function ExperienceTimeline() {
 
         {/* Content Card */}
         <motion.div
-          className="flex-1 bg-neutral-900/60 border border-neutral-800 rounded-xl p-6 hover:bg-neutral-900/80 transition-all duration-300"
+          className="flex-1 bg-neutral-900/60 border border-neutral-800 rounded-xl p-4 sm:p-6 hover:bg-neutral-900/80 transition-all duration-300"
           initial={{ opacity: 0, y: 20 }}
           animate={isItemInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-            <h3 className="text-xl font-semibold text-white outfit">
+            <h3 className="text-lg sm:text-xl font-semibold text-white outfit">
               {exp.title}
             </h3>
             <span className="text-[#A87F17] outfit font-medium text-sm">
@@ -130,7 +130,7 @@ function ExperienceTimeline() {
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.8 }}
       >
-        <AnimatedText className="text-4xl text-center" delay={0.2}>
+        <AnimatedText className="text-2xl sm:text-4xl text-center" delay={0.2}>
           Experience & Education
         </AnimatedText>
       </motion.div>
@@ -143,7 +143,7 @@ function ExperienceTimeline() {
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         {/* Animated Timeline Line */}
-        <div className="absolute left-8 top-0 w-0.5 bg-neutral-700 h-full">
+        <div className="absolute left-2 sm:left-8 top-0 w-0.5 bg-neutral-700 h-full">
           <motion.div
             className="w-full bg-gradient-to-b from-[#A87F17] via-[#A87F17] to-transparent"
             style={{ height: timelineHeight }}

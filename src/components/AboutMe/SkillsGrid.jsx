@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { motion } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
@@ -58,12 +58,12 @@ function SkillsGrid() {
 
   return (
     <div ref={elementRef} className="w-full space-y-8">
-      <AnimatedText className="text-4xl text-center" delay={0.2}>
+      <AnimatedText className="text-2xl sm:text-4xl text-center" delay={0.2}>
         Skills & Technologies
       </AnimatedText>
       
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         variants={containerVariants}
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
@@ -78,11 +78,11 @@ function SkillsGrid() {
               {category.title}
             </h3>
             
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {category.skills.map((skill, skillIndex) => (
                 <motion.div
                   key={skill.name}
-                  className="bg-neutral-900/60 border border-neutral-800 rounded-xl p-4 text-center hover:glass transition-all  cursor-pointer group"
+                  className="bg-neutral-900/60 border border-neutral-800 rounded-xl p-2 sm:p-4 text-center hover:glass transition-all cursor-pointer group"
                   whileHover={{ 
                     scale: 1.05,
                     y: -5
@@ -94,14 +94,14 @@ function SkillsGrid() {
                     delay: categoryIndex * 0.1 + skillIndex * 0.05
                   }}
                 >
-                  <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-4xl mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
                     {skill.icon.startsWith("devicon-") ? (
                       <i className={skill.icon}></i>
                     ) : (
                       skill.icon
                     )}
                   </div>
-                  <p className="text-white outfit text-sm font-medium">
+                  <p className="text-white outfit text-xs sm:text-sm font-medium">
                     {skill.name}
                   </p>
                 </motion.div>

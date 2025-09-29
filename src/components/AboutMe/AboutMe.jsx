@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { motion } from 'framer-motion'
 import ProfileCard from './ProfileCard'
 import SkillsGrid from './SkillsGrid'
@@ -9,23 +9,23 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 function AboutMe() {
   const { elementRef, isVisible } = useScrollAnimation(0.3)
   return (
-    <div ref={elementRef} className='min-h-[140vh] w-full bg-neutral-950 text-white py-20 px-4'>
-      <div className='max-w-7xl mx-auto space-y-20 pt-16'>
+    <section id="aboutme" ref={elementRef} className='min-h-screen w-full bg-neutral-950 text-white py-12 sm:py-20 px-4'>
+      <div className='max-w-7xl mx-auto space-y-12 sm:space-y-20 pt-8 sm:pt-16'>
 
         {/* Profile Section */}
         <motion.div
-          className='flex flex-col lg:flex-row items-center lg:items-start gap-12'
+          className='flex flex-col lg:flex-row items-center lg:items-start gap-8 sm:gap-12'
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
           {/* Profile Card */}
-          <div className='lg:w-1/3 flex justify-center'>
+          <div className='w-full lg:w-1/3 flex justify-center'>
             <ProfileCard />
           </div>
 
           {/* Skills Grid */}
-          <div className='lg:w-2/3'>
+          <div className='w-full lg:w-2/3'>
             <SkillsGrid />
           </div>
         </motion.div>
@@ -60,7 +60,7 @@ function AboutMe() {
         <SectionDivider/>
 
       </div>
-    </div>
+    </section>
   )
 }
 

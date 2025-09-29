@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedText from '../shared/AnimatedText'
 import Card from '../shared/Card'
@@ -28,13 +28,13 @@ function ProfileCard() {
   return (
     <div ref={elementRef}>
       <Card 
-        className="max-w-md"
+        className="w-full max-w-md mx-auto"
         delay={0.2}
       >
       <div className="flex flex-col items-center text-center space-y-6">
         {/* Profile Image Placeholder */}
         <motion.div
-          className="w-32 h-32 rounded-full bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] p-1"
+          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-[#A87F17] to-[#FFFFFF] p-1"
           initial={{ scale: 0 }}
           animate={isVisible ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -47,13 +47,13 @@ function ProfileCard() {
         {/* Name and Title */}
         <div className="space-y-2">
           <AnimatedText 
-            className="text-3xl"
+            className="text-2xl sm:text-3xl"
             delay={0.6}
           >
             Aryan Meshram
           </AnimatedText>
           <motion.p
-            className="text-[#B2A8A8] outfit text-lg"
+            className="text-[#B2A8A8] outfit text-base sm:text-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -64,7 +64,7 @@ function ProfileCard() {
 
         {/* Bio */}
         <motion.p
-          className="text-[#B2A8A8] outfit leading-relaxed"
+          className="text-[#B2A8A8] outfit leading-relaxed text-sm sm:text-base"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -75,7 +75,7 @@ function ProfileCard() {
 
         {/* Download Resume Button */}
         <motion.button
-          className="px-6 py-3 bg-gradient-to-r from-[#A87F17] to-[#D4AF37] text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-[#A87F17]/25 transition-all duration-300 outfit"
+          className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#A87F17] to-[#D4AF37] text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-[#A87F17]/25 transition-all duration-300 outfit text-sm sm:text-base"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 1.2 }}
