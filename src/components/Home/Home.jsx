@@ -16,7 +16,7 @@ function Home() {
     <div ref={elementRef} className='w-full h-screen relative z-0 overflow-hidden'>
       {/* Optimized video component with lazy loading */}
       <OptimizedVideo
-        src={heroVideo}
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4"
         className="absolute inset-0 w-full h-full z-0"
         poster="/hero-poster.jpg"
         lazyLoad={false} // Load immediately for hero video

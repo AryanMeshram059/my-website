@@ -533,14 +533,16 @@ function Projects() {
                       <ExternalLink size={18} />
                       Demo
                     </a>
+                    
                   </div>
+                  <div className='bg-black h-[50px] text-black'> nothing here</div>
                 </Motion.div>
               </AnimatePresence>
             </Motion.div>
           </div>
         </div>
       </section>
-
+      <div className='bg-black h-6'></div>
       <div className="bg-black px-4 pb-12">
         <div className="mx-auto max-w-7xl">
           <SectionDivider />
