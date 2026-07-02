@@ -1,68 +1,71 @@
+const githubProfile = 'https://github.com/AryanMeshram059'
+import smartspend_demo from '../assets/smartspend_demo.png'
+
 export const projectsData = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with user authentication, payment integration, and admin dashboard. Built with modern technologies for optimal performance.',
-    image: null, // Placeholder for now
-    techStack: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example',
-    category: 'fullstack',
+    title: 'SmartSpend-Ai',
+    description: 'A personal finance tracker pwa with ai powered assitant',
+    cardCaption: 'Live metrics, charts, and Ai Assistant',
+    visual: 'dashboard',
+    palette: ['#0b1f18', '#d4af37'],
+    techStack: ['React', 'Node.js', 'ReCharts', 'Supabase'],
+    liveUrl: 'https://smartspend-ai-brown-eta.vercel.app/',
+    githubUrl: 'https://github.com/AryanMeshram059/smartspend-ai',
+    category: 'Personal Project',
+    image: smartspend_demo,
     featured: true
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    image: null,
-    techStack: ['React', 'TypeScript', 'Firebase', 'Framer Motion'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example',
-    category: 'frontend',
+    title: 'Commerce Experience',
+    description: 'A polished storefront concept focused on fast browsing, clean product flows, and premium presentation.',
+    cardCaption: 'Conversion-focused product interface',
+    visual: 'commerce',
+    palette: ['#261909', '#f6e58d'],
+    techStack: ['React', 'Tailwind CSS', 'Stripe', 'Framer Motion'],
+    liveUrl: githubProfile,
+    githubUrl: githubProfile,
+    category: 'Full Stack',
     featured: true
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
-    image: null,
-    techStack: ['React', 'OpenWeather API', 'Chart.js', 'CSS3'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example',
-    category: 'frontend',
+    title: 'Motion Portfolio',
+    description: 'An expressive personal site system with smooth transitions, responsive sections, and optimized media.',
+    cardCaption: 'Identity, motion, and performance',
+    visual: 'portfolio',
+    palette: ['#1c1b1b', '#a87f17'],
+    techStack: ['React', 'Three.js', 'Framer Motion', 'Vite'],
+    liveUrl: githubProfile,
+    githubUrl: githubProfile,
+    category: 'Frontend',
     featured: false
   },
   {
     id: 4,
-    title: 'REST API Server',
-    description: 'A scalable REST API with authentication, rate limiting, and comprehensive documentation. Includes automated testing and deployment.',
-    image: null,
-    techStack: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'Docker'],
-    liveUrl: null,
-    githubUrl: 'https://github.com/example',
-    category: 'backend',
+    title: 'Travel Explorer',
+    description: 'A discovery interface for immersive destination browsing with map-like visual rhythm and responsive layouts.',
+    cardCaption: 'Destination discovery and route previews',
+    visual: 'travel',
+    palette: ['#10241f', '#38bdf8'],
+    techStack: ['React', 'API Design', 'Responsive UI', 'Animation'],
+    liveUrl: githubProfile,
+    githubUrl: githubProfile,
+    category: 'Frontend',
     featured: false
   },
   {
     id: 5,
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website with smooth animations, glassmorphism effects, and optimized performance.',
-    image: null,
-    techStack: ['React', 'Framer Motion', 'Tailwind CSS', 'Vite'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example',
-    category: 'frontend',
-    featured: false
-  },
-  {
-    id: 6,
-    title: 'Social Media Dashboard',
-    description: 'A comprehensive social media management platform with analytics, scheduling, and multi-platform integration.',
-    image: null,
-    techStack: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'AWS'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example',
-    category: 'fullstack',
+    title: 'Media Studio',
+    description: 'A creative dashboard for organizing visual content, previewing campaigns, and moving quickly between assets.',
+    cardCaption: 'Creative operations and asset previews',
+    visual: 'media',
+    palette: ['#220f20', '#d4af37'],
+    techStack: ['React', 'State Management', 'Design Systems', 'Vite'],
+    liveUrl: githubProfile,
+    githubUrl: githubProfile,
+    category: 'Product UI',
     featured: false
   }
 ]
@@ -71,9 +74,9 @@ export const getProjectsByCategory = (category) => {
   if (category === 'all') {
     return projectsData
   }
-  return projectsData.filter(project => project.category === category)
+  return projectsData.filter((project) => project.category.toLowerCase() === category)
 }
 
 export const getFeaturedProjects = () => {
-  return projectsData.filter(project => project.featured)
+  return projectsData.filter((project) => project.featured)
 }
