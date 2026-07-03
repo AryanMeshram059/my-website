@@ -10,7 +10,7 @@ function Layout() {
   return (
     <>
       <Navbar />
-      <section id='home' >
+      <section id='home'>
         <Home />
       </section>
       <section id='aboutme'>
